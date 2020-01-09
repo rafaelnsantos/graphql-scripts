@@ -2,6 +2,8 @@ if (process.env.NODE_ENV === 'dev') {
   const dotenv = require('dotenv')
   const path = require('path')
   dotenv.config({ path: path.join(process.cwd(), '.env.development') })
+} else {
+  dotenv.config({ path: path.join(__dirname, '..', '.env') })
 }
 
 const app = require('./app')
