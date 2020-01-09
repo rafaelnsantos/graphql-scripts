@@ -3,7 +3,9 @@ const path = require('path')
 nodemon({
   script: path.join(__dirname, '..', 'src/index.ts'),
   ext: 'ts graphql json',
-  exec: 'ts-node'
+  env: {
+    "NODE_ENV": "dev"
+  }
 });
 
 nodemon.on('start', function () {
