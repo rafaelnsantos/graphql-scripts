@@ -1,5 +1,6 @@
+const dotenv = require('dotenv')
+
 if (process.env.NODE_ENV === 'dev') {
-  const dotenv = require('dotenv')
   const path = require('path')
   dotenv.config({ path: path.join(process.cwd(), '.env.development') })
 } else {
