@@ -1,8 +1,10 @@
 const { codegen } = require('@graphql-codegen/core')
-const schema = require('../src/schema')
+const { printSchema, parse, buildSchema } = require('graphql')
+const schema = buildSchema(require('../src/schema').typeDefs)
 const typescriptPlugin = require('@graphql-codegen/typescript')
-const { printSchema, parse } = require('graphql')
 const fs = require('fs')
+const path = require('path')
+
 
 const outputFile = 'src/generated/schema.ts'
 const config = {
@@ -19,10 +21,10 @@ const config = {
     typescript: typescriptPlugin,
   },
 }
-
 codegen(config)
-  .then(output => fs.writeFile(path.join(process.cwd(), outputFile), output, () => {
-  console.log('Outputs generated!')
-  }))
+  .then(output => {
+    fs.writeFileSync(path.join(process.cwd(), outputFile), output)
+    console.log('tipos gerados com sucesso')
+  })
   .catch(err => console.log(err))
 
