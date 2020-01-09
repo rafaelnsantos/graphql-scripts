@@ -20,8 +20,9 @@ const config = {
   },
 }
 
-const output = await codegen(config)
-
-fs.writeFile(path.join(process.cwd(), outputFile), output, () => {
+codegen(config)
+  .then(output => fs.writeFile(path.join(process.cwd(), outputFile), output, () => {
   console.log('Outputs generated!')
-})
+  }))
+  .catch(err => console.log(err))
+
