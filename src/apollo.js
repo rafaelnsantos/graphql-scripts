@@ -4,17 +4,17 @@ const { exportFolder } = require('../lib/folder-utils')
 const schema = require('./schema')
 const formatError = require('./formatError')
 
-const repositories = exportFolder(process.cwd(), '-repository', { basepath: 'src/repositories' })
-const services = exportFolder(process.cwd(), '-service', { basepath: 'src/services' })
+const repositories = exportFolder(process.cwd(), '-repository', { basepath: process.env.NODE_ENV === 'production' ? 'build/repositories' : 'src/repositories' })
+const services = exportFolder(process.cwd(), '-service', { basepath: process.env.NODE_ENV === 'production' ? 'build/services' : 'src/services' })
 const utils = exportFolder(process.cwd(), '-util', { 
-  basepath: 'src/utils',
+  basepath: process.env.NODE_ENV === 'production' ? 'build/utils' : 'src/utils',
   inject: {
     repositories,
     services
   }
 })
 
-const { CODES } = require(path.join(process.cwd(), 'src/errors'))
+const { CODES } = require(path.join(process.cwd(), process.env.NODE_ENV === 'production' ? 'build/errors' : 'src/errors'))
 
 module.exports = new ApolloServer({
   schema: makeExecutableSchema(schema),
