@@ -1,3 +1,9 @@
+if (process.env.NODE_ENV === 'dev') {
+  const dotenv = require('dotenv')
+  const path = require('path')
+  dotenv.config({ path: path.join(process.cwd(), '.env.development') })
+}
+
 const app = require('./app')
 const { createServer } = require('http')
 const apollo = require('./apollo')
