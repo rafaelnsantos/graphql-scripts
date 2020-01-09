@@ -8,7 +8,7 @@ tsc.build({
   compilerOptions: {
       rootDir: 'src',
       outDir: 'build',
-      declaration: true,
+      declaration: false,
       skipLibCheck: true,
   },
   include: ['src/**/*'],
