@@ -1,6 +1,6 @@
-import schemalizer from 'schemalizer'
+const schemalizer = require('schemalizer')
 
-export const schema = schemalizer(process.cwd(), {
+module.exports = schemalizer(process.cwd(), {
   basePath: 'src/graphql',
   directives: '_directives',
   mode: process.env.NODE_ENV === 'production' ? 'js' : 'ts'

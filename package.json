@@ -1,14 +1,7 @@
 {
-  "name": "@rafaelnsantos/graphql-scripts",
-  "version": "0.0.1",
+  "name": "graphql-api-scripts",
+  "version": "0.0.3",
   "description": "Configuration and scripts for Create GraphQL API",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "echo \"Error: no start specified\" && exit 1",
-    "dev": "nodemon src/index.ts",
-    "build": "echo \"Error: no build specified\" && exit 1",
-    "codegen": "echo \"Error: no build specified\" && exit 1"
-  },
   "author": "rafaelnsantos",
   "license": "MIT",
   "dependencies": {
@@ -17,11 +10,19 @@
     "graphql": "^14.5.8",
     "schemalizer": "^1.0.2"
   },
+  "bin": {
+    "graphql-api-scripts": "./bin/graphql-api-scripts.js"
+  },
   "devDependencies": {
     "@types/express": "^4.17.2",
     "@types/node": "^13.1.5",
     "nodemon": "^2.0.2",
+    "react-dev-utils": "^10.0.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelnsantos/graphql-scripts.git"
   }
 }

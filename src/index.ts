@@ -1,6 +1,6 @@
-import app from './app'
-import { createServer } from 'http'
-import apollo from './apollo'
+const app = require('./app')
+const { createServer } = require('http')
+const apollo = require('./apollo')
 
 const PORT = process.env.PORT || 3000
 

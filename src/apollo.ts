@@ -1,7 +1,6 @@
-import { ApolloServer, makeExecutableSchema } from 'apollo-server-express'
-import { exportFolder } from '../lib/folder-utils'
-import { schema } from './schema'
-
+const { ApolloServer, makeExecutableSchema } = require('apollo-server-express')
+const { exportFolder } = require('../lib/folder-utils')
+const schema = require('./schema')
 
 const repositories = exportFolder(process.cwd(), '-repository', { basepath: 'src/repositories' })
 const services = exportFolder(process.cwd(), '-service', { basepath: 'src/services' })
@@ -14,7 +13,7 @@ const utils = exportFolder(process.cwd(), '-util', { basepath: 'src/utils' }, {
 
 console.log({ repositories, services, utils })
 
-export default new ApolloServer({
+module.exports = new ApolloServer({
   schema: makeExecutableSchema(schema),
   // formatError,
   context: async ({ req, connection }) => connection
@@ -32,8 +31,3 @@ export default new ApolloServer({
       // loaders: createDataloaders(repositories)
     })
 })
-
-export interface Context {
-  token?: string;
-  user?: string;
-}
