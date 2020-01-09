@@ -1,4 +1,4 @@
-const { codegen } = require('@graphql -codegen/core')
+const { codegen } = require('@graphql-codegen/core')
 const schema = require('../src/schema')
 const typescriptPlugin = require('@graphql-codegen/typescript')
 const { printSchema, parse } = require('graphql')
