@@ -1,3 +1,5 @@
+require('../lib/customModuleLoader')
+
 const nodemon = require('nodemon')
 const path = require('path')
 const watch = require('node-watch')
