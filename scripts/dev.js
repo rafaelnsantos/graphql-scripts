@@ -16,7 +16,6 @@ nodemon({
 let listener
 
 nodemon.on('start', function () {
-  console.log('App has started');
   listener = watch(getGraphqlFiles(), generateTypes)
 }).on('quit', function () {
   listener.close()
