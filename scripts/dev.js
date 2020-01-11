@@ -1,6 +1,9 @@
 const nodemon = require('nodemon')
 const path = require('path')
+const dotenv = require('dotenv')
 require('../lib/watchGraphql')
+
+dotenv.config({path: path.join(process.cwd(), '.env.dev')})
 
 nodemon({
   script: path.join(__dirname, '..', 'src/index'),
