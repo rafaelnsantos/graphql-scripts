@@ -1,27 +1,20 @@
 const nodemon = require('nodemon')
 const path = require('path')
-const watch = require('node-watch')
-const getGraphqlFiles = require('../lib/getGraphQLFiles')
-const generateTypes = require('../lib/generateTypes')
+require('../lib/watchGraphql')
 
 nodemon({
   script: path.join(__dirname, '..', 'src/index'),
-  ext: 'ts graphql json',
+  ext: 'ts json',
   env: {
     NODE_ENV: 'dev'
   },
   exec: 'ts-node'
 });
 
-let listener
-
 nodemon.on('start', function () {
-  listener = watch(getGraphqlFiles(), generateTypes)
 }).on('quit', function () {
-  listener.close()
   console.log('App has quit');
   process.exit();
 }).on('restart', function (files) {
-  listener.close()
   console.log('App restarted due to: ', files);
 });

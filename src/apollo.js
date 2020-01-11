@@ -18,6 +18,10 @@ const utils = exportFolder(process.cwd(), '-util', {
 
 const { CODES } = require(path.join(process.cwd(), isProduction ? 'build/errors' : 'src/errors'))
 
+exports.repositories = repositories
+exports.services = services
+exports.utils = utils
+
 module.exports = new ApolloServer({
   schema: makeExecutableSchema(schema),
   formatError: formatError(CODES),
