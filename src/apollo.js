@@ -9,21 +9,11 @@ const formatError = require('./formatError')
 
 const basePath = path.join(process.cwd(), isProduction ? 'build' : 'src')
 
-const repositories = exportFolder(path.join(basePath, 'repositories'), '-repository', { mode })
-const services = exportFolder(path.join(basePath, 'services'), '-service', { mode })
-const utils = exportFolder(path.join(basePath, 'utils'), '-util', { 
-  inject: {
-    repositories,
-    services
-  },
-  mode
-})
+const repositories = require('./repositories')
+const services = require('./services')
+const utils = require('./utils')
 
 const { CODES } = require(path.join(basePath, 'errors'))
-
-exports.repositories = repositories
-exports.services = services
-exports.utils = utils
 
 module.exports = new ApolloServer({
   schema: makeExecutableSchema(schema),
