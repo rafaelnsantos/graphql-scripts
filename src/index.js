@@ -3,7 +3,6 @@ if (process.env.NODE_ENV === 'dev') {
   const path = require('path')
   dotenv.config({ path: path.join(process.cwd(), '.env.development') })
 }
-require('../lib/customModuleLoader')
 
 const app = require('./app')
 const { createServer } = require('http')
