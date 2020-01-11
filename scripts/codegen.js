@@ -21,6 +21,7 @@ const config = {
     typescript: typescriptPlugin,
   },
 }
+
 codegen(config)
   .then(output => {
     fs.writeFileSync(path.join(process.cwd(), outputFile), output)
