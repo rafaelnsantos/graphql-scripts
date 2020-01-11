@@ -8,7 +8,8 @@ nodemon({
   env: {
     NODE_ENV: 'dev'
   },
-  exec: 'ts-node'
+  exec: 'ts-node',
+  ignore: 'tests'
 });
 
 nodemon.on('start', function () {
