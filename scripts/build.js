@@ -9,6 +9,9 @@ rimraf.sync(buildPath)
 
 fs.mkdirSync(buildPath)
 fs.mkdirSync(path.join(buildPath, 'graphql'))
+fs.mkdirSync(path.join(buildPath, 'repositories'))
+fs.mkdirSync(path.join(buildPath, 'services'))
+fs.mkdirSync(path.join(buildPath, 'utils'))
 fs.mkdirSync(path.join(buildPath, 'graphql/_directives'))
 fs.mkdirSync(path.join(buildPath, 'graphql/_scalars'))
 
@@ -45,8 +48,7 @@ function recFindByExt (base, ext, files, result) {
 
 const graphqlFiles = recFindByExt(path.join(process.cwd(), 'src/graphql'), 'graphql')
 
-graphqlFiles.map(async file => {
-  console.log('copiando arquivo', file)
+graphqlFiles.map(file => {
   let folder = file.replace('src', 'build')
   folder = folder.substring(0, folder.lastIndexOf("/") )
   fs.mkdirSync(folder, { recursive: true })
