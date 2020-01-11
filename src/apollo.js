@@ -21,16 +21,14 @@ module.exports = new ApolloServer({
   formatError: formatError(CODES),
   context: async ({ req, connection }) => connection
     ? ({
-      // user: await controllers.auth.verifyTokenSubscription(connection.context.token),
+      token: connection.context.token,
       services,
       repositories,
       utils
-      // loaders: createDataloaders(repositories)
     }) : ({
       token: req.headers.token,
       services,
       repositories,
       utils
-      // loaders: createDataloaders(repositories)
     })
 })

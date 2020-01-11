@@ -1,5 +1,3 @@
-const { GraphQLError } = require('graphql')
-
 module.exports = function formatError(CODES){
   function formatError (err) {
     if (process.env.NODE_ENV === 'production') {
