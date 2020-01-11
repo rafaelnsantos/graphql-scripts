@@ -1,6 +1,6 @@
 const { ApolloServer, makeExecutableSchema } = require('apollo-server-express')
 const path = require('path')
-const { exportFolder } = require('../lib/folder-utils')
+const { exportFolder } = require('folder-utils')
 const schema = require('./schema')
 const formatError = require('./formatError')
 
