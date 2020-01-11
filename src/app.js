@@ -1,6 +1,6 @@
 const express = require('express')
-const apollos = require('./apollo')
-const schemaa = require('./schema')
+const apollo = require('./apollo')
+const schema = require('./schema')
 
 function cors (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -12,15 +12,15 @@ function cors (req, res, next) {
   next()
 }
 
-const appp = express()
+const app = express()
 
-appp.use(cors)
+app.use(cors)
 
 if (process.env.NODE_ENV !== 'production') {
-  appp.get('/graphql/schema', (req, res) => res.send(schemaa.typeDefs))
+  app.get('/graphql/schema', (req, res) => res.send(schema.typeDefs))
 }
 
-apollos.applyMiddleware({ app: appp })
+apollo.applyMiddleware({ app: app })
 
-module.exports = appp
+module.exports = app
 
