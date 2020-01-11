@@ -1,14 +1,14 @@
 {
   "name": "graphql-api-scripts",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "Configuration and scripts for Create GraphQL API",
   "author": "rafaelnsantos",
   "license": "MIT",
   "dependencies": {
     "apollo-server-express": "^2.9.15",
     "express": "^4.17.1",
+    "folder-utils": "^1.0.0",
     "graphql": "^14.5.8",
-    "remove": "^0.1.5",
     "schemalizer": "^1.0.2"
   },
   "bin": {
@@ -22,6 +22,7 @@
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.2",
     "react-dev-utils": "^10.0.0",
+    "rimraf": "^3.0.0",
     "ts-node": "^8.5.4",
     "tsc-prog": "^2.1.0",
     "typescript": "^3.7.4"
