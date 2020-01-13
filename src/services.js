@@ -3,4 +3,6 @@ const path = require('path')
 
 const { basePath, mode } = require('./config')
 
-module.exports = exportFolder(path.join(basePath, 'services'), '-service', { mode })
+const services = exportFolder(path.join(basePath, 'services'), '-service', { mode })
+
+module.exports = services

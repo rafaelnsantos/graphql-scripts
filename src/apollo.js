@@ -11,7 +11,7 @@ const basePath = path.join(process.cwd(), isProduction ? 'build' : 'src')
 
 const repositories = require('./repositories')
 const services = require('./services')
-const utils = require('./utils')
+const utils = require('./utils')({ repositories, services })
 
 const { CODES } = require(path.join(basePath, 'errors'))
 

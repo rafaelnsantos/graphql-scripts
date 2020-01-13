@@ -3,7 +3,6 @@ const path = require('path')
 
 const { basePath, mode } = require('graphql-api-scripts/src/config')
 
-const repositories = require('./repositories')
-const services = require('./services')
+const utils = ({ repositories, services }) => exportFolder(path.join(basePath, 'utils'), '-util', { inject: { repositories, services }, mode })
 
-module.exports = exportFolder(path.join(basePath, 'utils'), '-util', { inject: { repositories, services }, mode })
+module.exports = utils
