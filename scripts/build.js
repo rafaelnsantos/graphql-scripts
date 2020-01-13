@@ -35,7 +35,11 @@ createFolder(path.join(buildPath, 'graphql/_scalars'))
 
 getGraphqlFiles().map(file => {
   let folder = file.replace('src', 'build')
-  folder = folder.substring(0, folder.lastIndexOf("/") )
+  if (folder.includes('/')) {
+    folder = folder.substring(0, folder.lastIndexOf("/") )
+  } else {
+    folder =  folder.substring(0, folder.lastIndexOf("\\") )
+  }
   createFolder(folder)
   fs.copyFileSync(file, file.replace('src', 'build'))
 })
