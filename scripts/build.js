@@ -9,6 +9,8 @@ const buildPath = path.join(process.cwd(), 'build')
 
 rimraf.sync(buildPath)
 
+require('../lib/generateTypes')()
+
 tsc.build({
   basePath: process.cwd(), // always required, used for relative paths
   configFilePath: 'tsconfig.json', // config to inherit from (optional)
