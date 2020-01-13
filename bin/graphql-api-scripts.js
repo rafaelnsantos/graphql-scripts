@@ -15,8 +15,14 @@ process.on('unhandledRejection', err => {
   throw err;
 });
 
-const spawn = require('react-dev-utils/crossSpawn');
 const args = process.argv.slice(2);
+
+if (args[0] === 'start') {
+  require('../scripts/start')
+  return
+} 
+
+const spawn = require('react-dev-utils/crossSpawn');
 
 const scriptIndex = args.findIndex(
   x => x === 'build' || x === 'dev' || x === 'start' || x === 'test' || x === 'codegen'

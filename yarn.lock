@@ -2111,6 +2111,11 @@ folder-utils@^2.0.1:
     folder-utils "^1.0.0"
     mongoose "^5.8.6"
 
+folder-utils@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/folder-utils/-/folder-utils-2.0.2.tgz#ef0797895ccdbdde2cf40544d709fa6b17aa7340"
+  integrity sha512-a9o0XdMXJpavib/N1s35s5TYgX5UEOp3mjzPRlfUFeSxWor/ZNmFcDtLWrMRT/wQHW0o3I2sZORdhTUapvQ47Q==
+
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
