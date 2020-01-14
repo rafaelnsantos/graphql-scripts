@@ -1,14 +1,9 @@
-const isProduction = process.env.NODE_ENV === 'production'
-const mode = isProduction ? 'js' : 'ts'
+const { basePath, mode } = require('./config')
 
 const { ApolloServer, makeExecutableSchema } = require('apollo-server-express')
 const path = require('path')
-const { exportFolder } = require('folder-utils')
-const schema = require('./schema')(isProduction ? 'js' : 'ts')
+const schema = require('./schema')(mode)
 const formatError = require('./formatError')
-
-const basePath = path.join(process.cwd(), isProduction ? 'build' : 'src')
-
 const repositories = require('./repositories')
 const services = require('./services')
 const utils = require('./utils')({ repositories, services })
