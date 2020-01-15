@@ -13,7 +13,8 @@ nodemon({
   },
   exec: 'ts-node',
   ignore: ['tests', 'node_modules/**/*'],
-  legacyWatch: true
+  legacyWatch: true,
+  args: ['--inspect=0.0.0.0:9229']
 });
 
 nodemon.on('start', function () {
