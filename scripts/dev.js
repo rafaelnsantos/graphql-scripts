@@ -7,12 +7,13 @@ dotenv.config({path: path.join(process.cwd(), '.env.dev')})
 
 nodemon({
   script: path.join(__dirname, '..', 'src/index'),
-  ext: 'ts json',
+  ext: 'ts,json',
   env: {
     NODE_ENV: 'dev'
   },
   exec: 'ts-node',
-  ignore: 'tests'
+  ignore: ['tests', 'node_modules/**/*'],
+  legacyWatch: true
 });
 
 nodemon.on('start', function () {
