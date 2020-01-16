@@ -8,8 +8,10 @@ const repositories = require('./repositories')
 const services = require('./services')
 const utils = require('./utils')({ repositories, services })
 
-require('./cron')({ services, repositories, utils })
-
+// todo: figure out how to test cron jobs
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'dev') {
+  require('./cron')({ services, repositories, utils })
+}
 const { CODES } = require(path.join(basePath, 'errors'))
 
 module.exports = new ApolloServer({
