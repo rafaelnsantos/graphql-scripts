@@ -1,5 +1,5 @@
 const { basePath, mode } = require('./config')
-
+const path = require('path')
 const { schedule } = require('node-cron')
 const { requireFolder } = require('folder-utils')
 
