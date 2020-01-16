@@ -14,12 +14,11 @@ nodemon({
   exec: 'ts-node',
   ignore: ['tests', 'node_modules/**/*'],
   legacyWatch: true,
-  args: ['--inspect=0.0.0.0:9229']
+  args: ['--inspect-brk=0.0.0.0']
 });
 
 nodemon.on('start', function () {
 }).on('quit', function () {
-  console.log('App has quit');
   process.exit();
 }).on('restart', function (files) {
   console.log('App restarted due to: ', files);
