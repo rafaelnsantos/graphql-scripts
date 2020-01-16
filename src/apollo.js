@@ -8,6 +8,8 @@ const repositories = require('./repositories')
 const services = require('./services')
 const utils = require('./utils')({ repositories, services })
 
+require('./cron')({ services, repositories, utils })
+
 const { CODES } = require(path.join(basePath, 'errors'))
 
 module.exports = new ApolloServer({

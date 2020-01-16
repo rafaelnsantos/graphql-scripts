@@ -1,10 +1,18 @@
 import { Express } from 'express';
+import { ScheduleOptions, ScheduledTask } from 'node-cron'
 
 export const app: Express
 export const repositories: any
 export const services: any
 export const utils: any
 export const generateTypes: () => void
+
+export interface CronProps <Repositories, Services, Utils> {
+  schedule: (cronExpression: string, func: () => void, options?: ScheduleOptions) => ScheduledTask;
+  repositories: Repositories;
+  services: Services;
+  utils: Utils;
+}
 
 export interface ContextRequest<Repositories, Services, Utils> {
   repositories: Repositories;
