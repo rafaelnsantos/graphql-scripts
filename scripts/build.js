@@ -30,6 +30,7 @@ tsc.build({
 createFolder(path.join(buildPath, 'repositories'))
 createFolder(path.join(buildPath, 'services'))
 createFolder(path.join(buildPath, 'utils'))
+createFolder(path.join(buildPath, 'cron'))
 createFolder(path.join(buildPath, 'graphql/_directives'))
 createFolder(path.join(buildPath, 'graphql/_scalars'))
 
